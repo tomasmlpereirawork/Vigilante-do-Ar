@@ -6,6 +6,33 @@
     <title>Unity Web Player | Vigilante do Ar</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+      /* Se o telemóvel estiver em pé (Portrait), força o container do Unity a rodar 90º */
+      @media screen and (orientation: portrait) {
+        #unity-container.unity-mobile {
+          width: 100vh !important;
+          height: 100vw !important;
+          transform: rotate(90deg);
+          transform-origin: top left;
+          position: absolute;
+          top: 0;
+          left: 100vw;
+          overflow: hidden;
+        }
+      }
+
+      /* Quando o telemóvel já estiver deitado (Landscape), o jogo funciona normalmente */
+      @media screen and (orientation: landscape) {
+        #unity-container.unity-mobile {
+          width: 100% !important;
+          height: 100% !important;
+          transform: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
